@@ -11,4 +11,15 @@ export const styles = StyleSheet.create({
       marginBottom: 10,
       paddingHorizontal: 10,
     },
+    title: {
+      width: '100%',
+      textAlign: 'center',
+      fontSize: 18,
+      color: '#3b82f6',
+      paddingBottom: 25,
+      fontWeight: 600,
+      fontFamily: 'Sans',
+      textDecorationLine: "underline",
+      
+  },
   });

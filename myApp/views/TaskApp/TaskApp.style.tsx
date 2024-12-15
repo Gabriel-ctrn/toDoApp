@@ -21,5 +21,21 @@ export const styles = StyleSheet.create({
         fontFamily: 'Sans',
         textDecorationLine: "underline",
         
+    },
+    modalBackground: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fundo semitransparente
+    },
+    modalContainer: {
+      backgroundColor: 'white',
+      padding: 20,
+      borderRadius: 10,
+      width: '80%',
+    },
+    button: {
+      marginBottom: 40,
+      marginTop: 20,
     }
   });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TextInput, Button } from 'react-native';
+import { View, TextInput, Button, Text } from 'react-native';
 import { styles } from './TaskForm.style';
 
 interface TaskFormProps {
@@ -19,6 +19,7 @@ const TaskForm = ({
 }: TaskFormProps) => {
   return (
     <View style={styles.form}>
+      <Text style={styles.title}>Adicionar Nova Tarefa</Text>
       <TextInput
         style={styles.input}
         value={taskTitle}
@@ -27,7 +28,7 @@ const TaskForm = ({
         placeholderTextColor="#888"
       />
       <TextInput
-        style={styles.input}
+        style={[styles.input, { height: 50 }]}
         value={taskDescription}
         onChangeText={setTaskDescription}
         placeholder="Digite a descrição da tarefa"
