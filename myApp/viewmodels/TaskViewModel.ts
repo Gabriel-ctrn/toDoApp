@@ -8,7 +8,6 @@ export const useTaskViewModel = () => {
   const [taskDescription, setTaskDescription] = useState<string>('');
   const [filter, setFilter] = useState<'all' | 'pending' | 'completed'>('all');
 
-  // Carregar tarefas ao inicializar o ViewModel
   useEffect(() => {
     const fetchTasks = async () => {
       const loadedTasks = await loadTasks();
@@ -17,20 +16,18 @@ export const useTaskViewModel = () => {
     fetchTasks();
   }, []);
 
-  // Salvar tarefas no AsyncStorage
   const save = async (updatedTasks: Task[]) => {
     await saveTasks(updatedTasks);
     setTasks(updatedTasks);
   };
 
-  // Adicionar tarefa
   const addTask = () => {
     if (!taskTitle || !taskDescription) return;
     const newTask: Task = {
       id: Math.random().toString(),
       title: taskTitle,
       description: taskDescription,
-      status: 'pending', // status com valor correto
+      status: 'pending',
     };
     const updatedTasks = [...tasks, newTask];
     save(updatedTasks);
@@ -48,15 +45,12 @@ export const useTaskViewModel = () => {
     });
     save(updatedTasks);
   };
-  
 
-  // Excluir tarefa
   const deleteTask = (taskId: string) => {
     const updatedTasks = tasks.filter((task) => task.id !== taskId);
     save(updatedTasks);
   };
 
-  // Filtrar tarefas com base no status
   const filterTasks = () => {
     if (filter === 'all') return tasks;
     return tasks.filter((task) => task.status === filter);

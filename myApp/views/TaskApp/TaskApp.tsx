@@ -20,19 +20,17 @@ const TaskApp = () => {
   } = useTaskViewModel();
 
   const [selectedFilter, setSelectedFilter] = useState<'all' | 'pending' | 'completed'>('all');
-  const [isModalVisible, setIsModalVisible] = useState(false);  // Estado para controlar a visibilidade do modal
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const handleFilterChange = (filterType: 'all' | 'pending' | 'completed') => {
     setSelectedFilter(filterType);
     setFilter(filterType);
   };
 
-  // Função para abrir o modal
   const openModal = () => {
     setIsModalVisible(true);
   };
 
-  // Função para fechar o modal
   const closeModal = () => {
     setIsModalVisible(false);
   };
@@ -41,18 +39,15 @@ const TaskApp = () => {
     <View style={styles.container}>
       <Text style={styles.title}>Minhas Tarefas</Text>
 
-      {/* Botão para abrir o modal com o TaskForm */}
       <View style={styles.button}>
       <Button title="Criar Nova Tarefa" onPress={openModal} color="#007AFF" />
       </View>
-      
 
-      {/* Modal que contém o TaskForm */}
       <Modal
         visible={isModalVisible}
         animationType="slide"
-        transparent={true}  // Torna o fundo do modal semitransparente
-        onRequestClose={closeModal}  // Fecha o modal quando o botão de voltar do dispositivo é pressionado
+        transparent={true}
+        onRequestClose={closeModal}
       >
         <View style={styles.modalBackground}>
           <View style={styles.modalContainer}>

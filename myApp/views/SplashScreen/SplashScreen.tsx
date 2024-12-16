@@ -2,9 +2,8 @@ import React from "react";
 import { View, Image, Button } from "react-native";
 import { styles } from "./SplashScreen.style";
 
-// Tipando a prop `onPressBotao`
 interface SplashScreenProps {
-  onPressBotao: () => void; // Define que onPressBotao é uma função sem parâmetros e sem retorno
+  onPressBotao: () => void;
 }
 
 const SplashScreen: React.FC<SplashScreenProps> = ({ onPressBotao }) => {
@@ -16,7 +15,6 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onPressBotao }) => {
           style={styles.logo}
         />
         
-        {/* Botão para navegar para a TaskApp */}
         <Button title="Minhas Tarefas" onPress={onPressBotao} />
       </View>
     </View>
